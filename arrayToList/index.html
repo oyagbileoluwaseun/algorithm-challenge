@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthbotics</title>
+</head>
+<body>
+    <h1 ">Function Array ToDoList</h1>
+    <p></p>
+    <marquee behavior="scroll" direction="left" scrollamount="3">Check console to inspect array to object (list) structure ...</marquee>
+
+    <br/>
+    <p id="myList"></p>
+    <p id="myList1"></p>
+
+</body>
+
+<script>
+    function myFirstArray(array) {
+            var mylist = null;
+
+            for (i = array.length - 1; i >= 0; i--)
+                mylist = { value: array[i], rest: mylist };
+
+            return mylist;
+        }
+
+        function mySecondArray(mylist) {
+            var array = [];
+
+            for (var section = mylist; section; section = section.rest)
+                array.push(section.value);
+
+            return array;
+        }
+
+
+
+
+        console.log(myFirstArray([1, 2]));
+        document.getElementById('myList').innerHTML = myFirstArray([1, 2]);
+
+
+        console.log(mySecondArray(myFirstArray([1, 2, 3])));
+        document.getElementById('myList1').innerHTML = mySecondArray(myFirstArray([1, 2, 3]));
+
+
+</script>
+
+<style>
+    body{
+        background-color: hsl(217, 29%, 15%);
+        color: hsl(0, 0%, 100%);
+        margin-left: 50px;
+    }
+
+    h1:hover{
+        color: hsl(176, 68%, 64%);
+    }
+
+    h5{
+        color: hsl(176, 68%, 64%);
+    }
+</style>
+</html>
